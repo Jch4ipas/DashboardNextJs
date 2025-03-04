@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "@/components/button";
 import UserStatisticsCard from "@/components/graphic";
 import PieChartComponent from "@/components/piechart";
@@ -8,10 +8,22 @@ import RadialChartComponent from "@/components/radialchart";
 import NasaMedia from "@/services/infonasa"
 
 export default function Home() {
+
+  const [refresh, setRefresh] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setRefresh((prev) => prev + 1);
+    }, 3000000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
+
   const boxes = [
     { id: 1, width: 2, height: 4, content: <p className="flex text-xl font-bold items-center justify-center">Hello World</p>  },
     { id: 2, width: 2, height: 2, content: <iframe src="https://grafana-prod-route-grafana-prod.apps.ocpitsp0001.xaas.epfl.ch/d/wpngrfndshbrda/e29cb0-wpn-e29cb0?orgId=1&from=now-12h&to=now&timezone=browser&refresh=30s" className="w-full h-full"></iframe>},
-    { id: 3, width: 2, height: 2, content: <RadialChartComponent></RadialChartComponent>},
+    { id: 3, width: 2, height: 2, content: <p className="flex text-xl font-bold items-center justify-center">WPN</p>},
     { id: 4, width: 4, height: 2, content: <NasaMedia></NasaMedia> },
   ];
 
