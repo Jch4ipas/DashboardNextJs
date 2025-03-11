@@ -4,7 +4,8 @@ import { useEffect, useState } from "react";
 
 export default function NasaMedia() {
   const [mediaData, setMediaData] = useState(null);
-  const apiKey = process.env.NASA_API_KEY;
+  const apiKey = process.env.NEXT_PUBLIC_NASA_API_KEY;
+  console.log("L'api est : " + apiKey);
   const apiUrl = `https://api.nasa.gov/planetary/apod?api_key=${apiKey}`;
 
   useEffect(() => {
