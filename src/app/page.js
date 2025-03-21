@@ -6,6 +6,7 @@ import UserStatisticsCard from "@/components/graphic";
 import PieChartComponent from "@/components/piechart";
 import RadialChartComponent from "@/components/radialchart";
 import NasaMedia from "@/services/infonasa"
+import Clock from "@/components/Clock";
 
 export default function Home() {
 
@@ -22,9 +23,10 @@ export default function Home() {
 
   const boxes = [
     { id: 1, width: 2, height: 4, content: <p className="flex text-xl font-bold items-center justify-center">Hello World</p>  },
-    { id: 2, width: 2, height: 2, content: <iframe src="https://grafana-prod-route-grafana-prod.apps.ocpitsp0001.xaas.epfl.ch/d/wpngrfndshbrda/e29cb0-wpn-e29cb0?orgId=1&from=now-12h&to=now&timezone=browser&refresh=30s" className="w-full h-full"></iframe>},
+    { id: 2, width: 2, height: 2, content: <iframe src="http://localhost:3000/d/rYdddlPWj/node-exporter-full?orgId=1&from=now-3h&to=now&timezone=browser&var-DS_PROMETHEUS=default&var-job=node_exporter&var-node=node_exporter:9100&var-diskdevices=%5Ba-z%5D%2B%7Cnvme%5B0-9%5D%2Bn%5B0-9%5D%2B&refresh=1m" className="w-full h-full"></iframe>},
     { id: 3, width: 2, height: 2, content: <p className="flex text-xl font-bold items-center justify-center">WPN</p>},
-    { id: 4, width: 4, height: 2, content: <NasaMedia></NasaMedia> },
+    { id: 4, width: 2, height: 2, content: <NasaMedia></NasaMedia> },
+    { id: 4, width: 2, height: 2, content: <Clock></Clock> },
   ];
 
   return (
